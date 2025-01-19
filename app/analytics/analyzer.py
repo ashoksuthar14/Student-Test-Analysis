@@ -18,7 +18,7 @@ class QuizAnalyzer:
         self.historical_data_url = "https://api.jsonserve.com/XgAgFJ"
         
         # Initialize Gemini API
-        genai.configure(api_key="AIzaSyDNrlmsi9woPEYy1Q7O0u3fqZXgKZPk24E")
+        genai.configure(api_key="Gemini-API")
         self.model = genai.GenerativeModel('gemini-pro')
         
         # Setup SSL context

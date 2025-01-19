@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .analysis-card {
+            @apply bg-white rounded-lg shadow-md p-6 mb-6;
+        }
+        .stat-item {
+            @apply text-lg mb-2;
+        }
+        .stat-label {
+            @apply font-semibold text-gray-700;
+        }
+        .stat-value {
+            @apply text-blue-600 ml-2;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8">Quiz Performance Analysis</h1>
+
+        <!-- Overall Statistics -->
+        <div class="analysis-card">
+            <h2 class="text-2xl font-semibold mb-4">Overall Performance</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="stat-item">
+                    <span class="stat-label">Score:</span>
+                    <span class="stat-value">{{ analysis.score }}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Accuracy:</span>
+                    <span class="stat-value">{{ analysis.accuracy }}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Speed:</span>
+                    <span class="stat-value">{{ analysis.speed }}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Better than:</span>
+                    <span class="stat-value">{{ analysis.better_than }}% of students</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualizations -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {% for graph in visualizations %}
+            <div class="analysis-card">
+                <div id="{{ graph.id }}" class="w-full h-96"></div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Topic-wise Analysis -->
+        <div class="analysis-card">
+            <h2 class="text-2xl font-semibold mb-4">Topic-wise Recommendations</h2>
+            <div class="space-y-4">
+                {% if topic_performance %}
+                    {% for topic, data in topic_performance.items() %}
+                    <div class="p-4 rounded-lg {% if data.accuracy < 60 %}bg-red-100{% elif data.accuracy < 80 %}bg-yellow-100{% else %}bg-green-100{% endif %}">
+                        <h3 class="font-semibold mb-2">{{ topic }}</h3>
+                        <p class="text-gray-700">
+                            Accuracy: {{ data.accuracy }}% - 
+                            {% if data.accuracy < 60 %}
+                            Needs significant improvement. Focus on fundamentals.
+                            {% elif data.accuracy < 80 %}
+                            Good progress, but room for improvement.
+                            {% else %}
+                            Excellent understanding! Keep it up!
+                            {% endif %}
+                        </p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="p-4 bg-gray-100 rounded-lg">
+                        <p>No topic performance data available.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <script>
+            // Render visualizations
+            {% for graph in visualizations %}
+                Plotly.newPlot('{{ graph.id }}', {{ graph.data | safe }});
+            {% endfor %}
+        </script>
+    </div>
+</body>
+</html> 

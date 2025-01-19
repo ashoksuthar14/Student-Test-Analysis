@@ -101,7 +101,7 @@ student-analytics/
 - Accuracy gauge
 - Key statistics
 
-![Overview Section](https://via.placeholder.com/800x400.png?text=Overview+Section)
+
 
 ### 2. Topic Analysis
 
@@ -109,7 +109,7 @@ student-analytics/
 - Strength and weakness identification
 - Improvement recommendations
 
-![Topic Analysis](https://via.placeholder.com/800x400.png?text=Topic+Analysis)
+![Topic Analysis](dash2.png)
 
 ### 3. Quiz Analysis
 
@@ -125,7 +125,7 @@ student-analytics/
 - Topic progress heatmap
 - Trend analysis
 
-![Historical Trends](https://via.placeholder.com/800x400.png?text=Historical+Trends)
+![Historical Trends](dashboard pic.png)
 
 ### 5. AI Recommendations
 
@@ -134,7 +134,7 @@ student-analytics/
 - Areas for improvement
 - Test-taking strategies
 
-![AI Recommendations](https://via.placeholder.com/800x400.png?text=AI+Recommendations)
+![AI Recommendations](dash3.png)
 
 ## 🔄 Data Flow
 

@@ -191,5 +191,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For any queries or support, please contact:
 
 - **Email**: ashoksuthar48697@gmail.com
-- **GitHub**: [@yourusername](https://github.com/ashoksuthar14)
+- **GitHub**: [@ashoksuthar14](https://github.com/ashoksuthar14)
 

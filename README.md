@@ -4,7 +4,7 @@
 
 A comprehensive analytics dashboard providing detailed insights into student performance using quiz data and AI-powered recommendations.
 
-![Dashboard Overview](https://via.placeholder.com/800x400.png?text=Dashboard+Overview)
+![Dashboard Overview](dash1.png)
 
 ## 🚀 Features
 
